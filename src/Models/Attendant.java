@@ -9,4 +9,12 @@ public class Attendant {
                 attendant = participant;
                 hasAttended = false;
         }
+
+        public String getId(){
+                return attendant.getId();
+        }
+
+        public void setHasAttended(Boolean hasAttended) {
+                this.hasAttended = hasAttended;
+        }
 }
