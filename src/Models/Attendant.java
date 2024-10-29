@@ -1,6 +1,8 @@
 package Models;
 
-public class Attendant {
+import Interfaces.IAttendant;
+
+public class Attendant implements IAttendant {
 
         private Participant attendant;
         private Boolean hasAttended;
