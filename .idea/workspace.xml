@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45f0a36d-cf6e-4446-bb16-2d774dadcf42" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/AttendantNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/EventEndedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/EventNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/EventNotStartedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/EventStartedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/ParticipantAlreadyRegisteredException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/ParticipantNotRegisteredException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Interfaces/IAttendant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/OrganizerAlreadyExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/OrganizerNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/ParticipantAlreadyExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/ParticipantNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/IEventManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/IEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EventManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventManger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interfaces/IOrganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IOrganizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/IParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IParticipant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Attendant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Attendant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/Organizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Organizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Participant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

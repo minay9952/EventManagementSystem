@@ -25,14 +25,16 @@ public class Organizer extends Person implements IOrganizer {
         throw new EventNotFoundException("No event was found with this id " + eventId);
     }
 
-    public void createOnlineEvent(String name, LocalDateTime startDate, LocalDateTime endDate){
+    public Event createOnlineEvent(String name, LocalDateTime startDate, LocalDateTime endDate){
         Event createdEvent = new Event(name, startDate, endDate, this);
         organizedEvents.add(createdEvent);
+        return createdEvent;
     }
 
-    public void createOnsiteEvent(String name, LocalDateTime startDate, LocalDateTime endDate, String location){
+    public Event createOnsiteEvent(String name, LocalDateTime startDate, LocalDateTime endDate, String location){
         Event createdEvent = new Event(name, startDate, endDate, this, location);
         organizedEvents.add(createdEvent);
+        return createdEvent;
     }
 
     public void cancelEvent(String eventId) throws Exception {

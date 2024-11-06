@@ -1,14 +1,15 @@
 package Interfaces;
 
+import Models.Event;
 import Models.Participant;
 
 import java.time.LocalDateTime;
 
 public interface IOrganizer {
 
-    public void createOnlineEvent(String name, LocalDateTime startDate, LocalDateTime endDate);
+    public Event createOnlineEvent(String name, LocalDateTime startDate, LocalDateTime endDate);
 
-    public void createOnsiteEvent(String name, LocalDateTime startDate, LocalDateTime endDate, String location);
+    public Event createOnsiteEvent(String name, LocalDateTime startDate, LocalDateTime endDate, String location);
 
     public void cancelEvent(String eventId) throws Exception;
 
