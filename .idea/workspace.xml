@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45f0a36d-cf6e-4446-bb16-2d774dadcf42" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/OrganizerAlreadyExistException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/OrganizerNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/ParticipantAlreadyExistException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/ParticipantNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Interfaces/IEventManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EventManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventManger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/IOrganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IOrganizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Organizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Organizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Event.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
