@@ -1,6 +1,6 @@
 package Exceptions;
 
-public class EventEndedException extends Exception{
+public class EventEndedException extends EventServiceException{
     public EventEndedException(String message) {
         super(message);
     }
