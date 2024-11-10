@@ -1,6 +1,6 @@
 package Exceptions;
 
-public class AttendantNotFoundException extends Exception{
+public class AttendantNotFoundException extends AttendantServiceException{
 
     public AttendantNotFoundException(String message) {
         super(message);

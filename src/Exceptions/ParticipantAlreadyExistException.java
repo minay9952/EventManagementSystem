@@ -1,6 +1,6 @@
 package Exceptions;
 
-public class ParticipantAlreadyExistException extends Exception{
+public class ParticipantAlreadyExistException extends ParticipantServiceException{
 
     public ParticipantAlreadyExistException(String message) {
         super(message);
