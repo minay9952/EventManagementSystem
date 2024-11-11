@@ -112,7 +112,11 @@ public class Event implements IEvent {
     }
 
     /*
+    *This method removes an attendant from the event
     *
+    * @param attendantId the attendant id of the attendant to be removed
+    * @throws EventStartedException in case the event already started
+    * @throws AttendantNotFoundException in case the attendant to be removed is not found
     * */
     public void removeAttendant(String attendantId) throws EventServiceException, AttendantServiceException {
         if(LocalDateTime.now().isBefore(startDate))

@@ -24,6 +24,13 @@ public class Participant extends Person implements IParticipant {
         return false;
     }
 
+    /*
+    * This method allows a participant to register for an event
+    *
+    * @param event the event in which the participant wants to register
+    * @throws ParticipantAlreadyRegisteredException in case the participant is already registered in the event
+    * @throws EventStartedException in case the event already started
+    * */
     public void register(IEvent event) throws ParticipantServiceException, EventServiceException {
         if(isRegistered(event.getId()))
             throw new ParticipantAlreadyRegisteredException("This participant is already registered");
