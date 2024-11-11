@@ -1,8 +1,12 @@
 package Interfaces;
 
+import Exceptions.AttendantServiceException;
+import Exceptions.EventServiceException;
+import Exceptions.ParticipantServiceException;
+
 public interface IParticipant {
 
-    public void register(IEvent event) throws Exception;
+    void register(IEvent event) throws ParticipantServiceException, EventServiceException;
 
-    public void unregister(IEvent event) throws Exception;
+    void unregister(IEvent event) throws ParticipantServiceException, EventServiceException, AttendantServiceException;
 }

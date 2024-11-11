@@ -1,5 +1,7 @@
 package Interfaces;
 
+import Exceptions.AttendantServiceException;
+import Exceptions.EventServiceException;
 import Models.Event;
 import Models.Participant;
 
@@ -7,17 +9,17 @@ import java.time.LocalDateTime;
 
 public interface IOrganizer {
 
-    public Event createOnlineEvent(String name, LocalDateTime startDate, LocalDateTime endDate);
+    Event createOnlineEvent(String name, LocalDateTime startDate, LocalDateTime endDate);
 
-    public Event createOnsiteEvent(String name, LocalDateTime startDate, LocalDateTime endDate, String location);
+    Event createOnsiteEvent(String name, LocalDateTime startDate, LocalDateTime endDate, String location);
 
-    public void cancelEvent(String eventId) throws Exception;
+    void cancelEvent(String eventId) throws EventServiceException;
 
-    public void giveAttendance(String eventId, String attendantId) throws Exception;
+    void giveAttendance(String eventId, String attendantId) throws EventServiceException, AttendantServiceException;
 
-    public void removeAttendance(String eventId, String attendantId) throws Exception;
+    void removeAttendance(String eventId, String attendantId) throws EventServiceException, AttendantServiceException;
 
-    public void addParticipant(String eventId, Participant participant) throws Exception;
+    void addParticipant(String eventId, Participant participant) throws EventServiceException;
 
-    public void removeParticipant(String eventId, String attendantId) throws Exception;
+    void removeParticipant(String eventId, String attendantId) throws EventServiceException, AttendantServiceException;
 }

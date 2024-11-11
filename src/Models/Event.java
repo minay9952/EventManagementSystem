@@ -1,9 +1,6 @@
 package Models;
 
-import Exceptions.AttendantNotFoundException;
-import Exceptions.EventEndedException;
-import Exceptions.EventNotStartedException;
-import Exceptions.EventStartedException;
+import Exceptions.*;
 import Interfaces.IAttendant;
 import Interfaces.IEvent;
 
@@ -60,7 +57,7 @@ public class Event implements IEvent {
     * @return the attendant if found
     * @throws AttendantNotFoundException in case the attendant wasn't found
     * */
-    private IAttendant getAttendantById(String attendantId) throws AttendantNotFoundException {
+    private IAttendant getAttendantById(String attendantId) throws AttendantServiceException {
         for(int i=0; i < attendants.size(); i++){
             if(attendants.get(i).getId().equals(attendantId))
                 return attendants.get(i);
@@ -76,7 +73,7 @@ public class Event implements IEvent {
     * @throws EventNotStartedException in case the event to give attendance for has not yet started
     * @throws EventEndedException in case the event to give attendance for has ended
     * */
-    public void giveAttendance(String attendantId) throws AttendantNotFoundException, EventNotStartedException, EventEndedException {
+    public void giveAttendance(String attendantId) throws AttendantServiceException, EventServiceException {
         if(LocalDateTime.now().isBefore(startDate))
             throw new EventNotStartedException("The event didn't start yet. It starts at " + startDate.toString());
         if(LocalDateTime.now().isAfter(endDate))
@@ -93,7 +90,7 @@ public class Event implements IEvent {
     * @throws EventNotStartedException in case the event to give attendance for has not yet started
     * @throws EventEndedException in case the event to give attendance for has ended
     * */
-    public void removeAttendance(String attendantId) throws EventNotStartedException, EventEndedException, AttendantNotFoundException {
+    public void removeAttendance(String attendantId) throws EventServiceException, AttendantServiceException {
         if(LocalDateTime.now().isBefore(startDate))
             throw new EventNotStartedException("The event didn't start yet. It starts at " + startDate.toString());
         if(LocalDateTime.now().isAfter(endDate))
@@ -108,7 +105,7 @@ public class Event implements IEvent {
     * @param attendant the attendant to be added to the event
     * @throws EventStartedException in case the event already started
     * */
-    public void addAttendant(IAttendant attendant) throws EventStartedException {
+    public void addAttendant(IAttendant attendant) throws EventServiceException {
         if(LocalDateTime.now().isBefore(startDate))
             throw new EventStartedException("Can't add attendants after the event started");
         attendants.add(attendant);
@@ -117,7 +114,7 @@ public class Event implements IEvent {
     /*
     *
     * */
-    public void removeAttendant(String attendantId) throws EventStartedException, AttendantNotFoundException {
+    public void removeAttendant(String attendantId) throws EventServiceException, AttendantServiceException {
         if(LocalDateTime.now().isBefore(startDate))
             throw new EventStartedException("Can't remove attendants after the event started");
         IAttendant attendant = getAttendantById(attendantId);

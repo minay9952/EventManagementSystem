@@ -1,7 +1,6 @@
 package Models;
 
-import Exceptions.ParticipantAlreadyRegisteredException;
-import Exceptions.ParticipantNotRegisteredException;
+import Exceptions.*;
 import Interfaces.IAttendant;
 import Interfaces.IEvent;
 import Interfaces.IParticipant;
@@ -25,7 +24,7 @@ public class Participant extends Person implements IParticipant {
         return false;
     }
 
-    public void register(IEvent event) throws Exception {
+    public void register(IEvent event) throws ParticipantServiceException, EventServiceException {
         if(isRegistered(event.getId()))
             throw new ParticipantAlreadyRegisteredException("This participant is already registered");
         registeredEvents.add(event);
@@ -33,7 +32,7 @@ public class Participant extends Person implements IParticipant {
         event.addAttendant(attendant);
     }
 
-    public void unregister(IEvent event) throws Exception {
+    public void unregister(IEvent event) throws ParticipantServiceException, EventServiceException, AttendantServiceException {
         if(!isRegistered(event.getId()))
             throw new ParticipantNotRegisteredException("This participant is already bot registered");
         event.removeAttendant(getId());

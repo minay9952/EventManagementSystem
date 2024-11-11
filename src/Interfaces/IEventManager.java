@@ -1,18 +1,15 @@
 package Interfaces;
 
-import Exceptions.OrganizerAlreadyExistException;
-import Exceptions.OrganizerNotFoundException;
-import Exceptions.ParticipantAlreadyExistException;
-import Exceptions.ParticipantNotFoundException;
+import Exceptions.*;
 import Models.Gender;
 
 public interface IEventManager {
 
-    public void addOrganizer (String name, Gender gender, int age) throws OrganizerAlreadyExistException;
+    void addOrganizer (String name, Gender gender, int age) throws OrganizerServiceException;
 
-    public void removeOrganizer(String organizerId) throws OrganizerNotFoundException;
+    void removeOrganizer(String organizerId) throws OrganizerServiceException;
 
-    public void addParticipant(String name, Gender gender, int age) throws ParticipantAlreadyExistException;
+    void addParticipant(String name, Gender gender, int age) throws ParticipantServiceException;
 
-    public void removeParticipant(String participantId) throws ParticipantNotFoundException;
+    void removeParticipant(String participantId) throws ParticipantServiceException;
 }

@@ -1,5 +1,7 @@
 package Interfaces;
 
+import Exceptions.AttendantServiceException;
+import Exceptions.EventServiceException;
 import Exceptions.EventStartedException;
 import Models.Attendant;
 import Models.Event;
@@ -9,15 +11,15 @@ import java.time.LocalDateTime;
 
 public interface IEvent {
 
-    public String getId();
+    String getId();
 
-    public LocalDateTime getStartDate();
-    public void giveAttendance(String attendantId) throws Exception;
+    LocalDateTime getStartDate();
+    void giveAttendance(String attendantId) throws AttendantServiceException, EventServiceException;
 
-    public void removeAttendance(String attendantId) throws Exception;
+    void removeAttendance(String attendantId) throws AttendantServiceException, EventServiceException;
 
-    public void addAttendant(IAttendant attendant) throws Exception;
+    void addAttendant(IAttendant attendant) throws EventServiceException;
 
-    public void removeAttendant(String attendantId) throws Exception;
+    void removeAttendant(String attendantId) throws AttendantServiceException, EventServiceException;
 
 }
