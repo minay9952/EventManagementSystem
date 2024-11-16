@@ -50,6 +50,10 @@ public class Event implements IEvent {
         return startDate;
     }
 
+    public ArrayList<IAttendant> getAttendants() {
+        return attendants;
+    }
+
     /*
     * This method search for any attendant by the ID
     *
@@ -106,7 +110,7 @@ public class Event implements IEvent {
     * @throws EventStartedException in case the event already started
     * */
     public void addAttendant(IAttendant attendant) throws EventServiceException {
-        if(LocalDateTime.now().isBefore(startDate))
+        if(LocalDateTime.now().isAfter(startDate))
             throw new EventStartedException("Can't add attendants after the event started");
         attendants.add(attendant);
     }
@@ -119,7 +123,7 @@ public class Event implements IEvent {
     * @throws AttendantNotFoundException in case the attendant to be removed is not found
     * */
     public void removeAttendant(String attendantId) throws EventServiceException, AttendantServiceException {
-        if(LocalDateTime.now().isBefore(startDate))
+        if(LocalDateTime.now().isAfter(startDate))
             throw new EventStartedException("Can't remove attendants after the event started");
         IAttendant attendant = getAttendantById(attendantId);
         attendants.remove(attendant);

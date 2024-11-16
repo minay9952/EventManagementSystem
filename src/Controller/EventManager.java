@@ -226,18 +226,53 @@ public class EventManager implements IEventManager {
         events.remove(event);
     }
 
+    /*
+    * This method marks an attendant as attended in an event
+    *
+    * @param organizerId the ID of the organizer who will give the attendance
+    * @param eventId the ID of the event to give the attendance for
+    * @param attendantID the ID of the attendant who will be given the attendance
+    * @throws OrganizerNoFoundException in case no organizer is found with the provided ID
+    * @throws EventNotFoundException in case no event found with the provided ID
+    * @throws AttendantNotFoundException in case no attendant found with the provided ID
+    * @throws EventNotStartedException in case the event didn't start yet
+    * @throws EventEndedException in case the event already ended
+    * */
     public void giveAttendance(String organizerId, String eventId, String attendantId) throws EventServiceException, OrganizerServiceException, AttendantServiceException{
         findEventById(eventId);
         Organizer organizer = findOrganizerById(organizerId);
         organizer.giveAttendance(eventId, attendantId);
     }
 
+    /*
+     * This method removes the attendance given to an attendant before
+     *
+     * @param organizerId the ID of the organizer who will have his attendance removed
+     * @param eventId the ID of the event to remove the attendance from
+     * @param attendantID the ID of the attendant who will have his attendance removed
+     * @throws OrganizerNoFoundException in case no organizer is found with the provided ID
+     * @throws EventNotFoundException in case no event found with the provided ID
+     * @throws AttendantNotFoundException in case no attendant found with the provided ID
+     * @throws EventNotStartedException in case the event didn't start yet
+     * @throws EventEndedException in case the event already ended
+     * */
     public void removeAttendance(String organizerId, String eventId, String attendantId) throws EventServiceException, OrganizerServiceException, AttendantServiceException{
         findEventById(eventId);
         Organizer organizer = findOrganizerById(organizerId);
         organizer.removeAttendance(eventId, attendantId);
     }
 
+    /*
+    * This method adds a participant as an attendant for an event
+    *
+    * @param OrganizerId the ID of the organizer who will add the attendant
+    * @param eventId the ID of the event for which the attendant will be added
+    * @param participantID the ID of the participant who will be added in the event attendants
+    * @throws OrganizerNotFoundException in case no organizer is found with the provided ID
+    * @throws ParticipantNotFoundException in case no participant found with the provided ID
+    * @throws EventNotFoundException in case no event found with the provided ID
+    * @throws EventStartedException in case the event already started
+    * */
     public void addParticipant(String organizerId, String eventId, String participantId) throws OrganizerServiceException, ParticipantServiceException, EventServiceException{
         findEventById(eventId);
         Organizer organizer = findOrganizerById(organizerId);
@@ -245,6 +280,17 @@ public class EventManager implements IEventManager {
         organizer.addParticipant(eventId, participant);
     }
 
+    /*
+     * This method removes a participant from the attendants of an event
+     *
+     * @param OrganizerId the ID of the organizer who will remove the attendant
+     * @param eventId the ID of the event for which the attendant will be removed
+     * @param participantID the ID of the participant who will be removed from the event attendants
+     * @throws OrganizerNotFoundException in case no organizer is found with the provided ID
+     * @throws ParticipantNotFoundException in case no participant found with the provided ID
+     * @throws EventNotFoundException in case no event found with the provided ID
+     * @throws EventStartedException in case the event already started
+     * */
     public void removeParticipant(String organizerId, String eventId, String participantId) throws OrganizerServiceException, ParticipantServiceException, EventServiceException, AttendantServiceException{
         findEventById(eventId);
         findParticipantById(participantId);
@@ -252,12 +298,32 @@ public class EventManager implements IEventManager {
         organizer.removeParticipant(eventId, participantId);
     }
 
+    /*
+    * This method allows a participant to register for an event and get added to the attendants of the event
+    *
+    * @param eventId the ID of the event that the participant will register for
+    * @param participantId the ID of the participant who will register for an event
+    * @throws EventNotFoundException in case no event found with te provided ID
+    * @throws ParticipantNotFoundException in case no participant found with the provided ID
+    * @throws EventAlreadyStartedException in case the event was already started
+    * @throws ParticipantAlreadyRegisteredException in case the participant was already registered for the event
+    * */
     public void register(String eventId, String participantId) throws EventServiceException, ParticipantServiceException{
         Event event  = findEventById(eventId);
         Participant participant = findParticipantById(participantId);
         participant.register(event);
     }
 
+    /*
+     * This method allows a participant to unregister from an event and remove him from the event attendants
+     *
+     * @param eventId the ID of the event that the participant will unregister from
+     * @param participantId the ID of the participant who will unregister from the event
+     * @throws EventNotFoundException in case no event found with te provided ID
+     * @throws ParticipantNotFoundException in case no participant found with the provided ID
+     * @throws EventAlreadyStartedException in case the event was already started
+     * @throws ParticipantNotRegisteredException in case the participant was already not registered in the event
+     * */
     public void unregister(String eventId, String participantId) throws EventServiceException, ParticipantServiceException, AttendantServiceException{
         Event event = findEventById(eventId);
         Participant participant = findParticipantById(participantId);

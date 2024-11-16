@@ -16,6 +16,10 @@ public class Attendant implements IAttendant {
                 return attendant.getId();
         }
 
+        public Boolean getHasAttended() {
+                return hasAttended;
+        }
+
         public void setHasAttended(Boolean hasAttended) {
                 this.hasAttended = hasAttended;
         }
